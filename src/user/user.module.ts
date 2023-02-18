@@ -5,6 +5,7 @@ import { UserService } from './user.service';
 import { User, UserSchema } from './schemas/user.schema';
 import { ConfigService } from '@nestjs/config';
 import { ClientProxyFactory, Transport } from '@nestjs/microservices';
+import { SendgridService } from 'src/sendgrid.service';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { ClientProxyFactory, Transport } from '@nestjs/microservices';
   controllers: [UserController],
   providers: [
     UserService,
+    SendgridService,
     {
       provide: 'SUBSCRIBERS_SERVICE',
       useFactory: (configService: ConfigService) => {
@@ -25,7 +27,6 @@ import { ClientProxyFactory, Transport } from '@nestjs/microservices';
           options: {
             urls: [`amqp://${user}:${password}@${host}`],
             queue: queueName,
-            noAck: false,
             queueOptions: {
               durable: true,
             },

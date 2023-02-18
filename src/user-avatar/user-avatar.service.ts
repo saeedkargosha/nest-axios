@@ -16,7 +16,6 @@ export class UserAvatarService {
 
   async getAvatar(userId: string) {
     const user = await this.useAvatarrModel.findOne({ userId });
-    console.log(user, 'user');
 
     if (user && user.hash) {
       // User has avatar image saved in database, return it

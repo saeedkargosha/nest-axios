@@ -5,9 +5,8 @@ import { AppController } from './app/app.controller';
 import { AppService } from './app/app.service';
 import { configFactory } from './configs/configs';
 import { UserModule } from './user/user.module';
-import { MailerModule } from '@nestjs-modules/mailer';
-import { mailerConfig } from './configs/mailer.config';
 import { UserAvatarModule } from './user-avatar/user-avatar.module';
+import { SubscribersModule } from './subscribers/subscribers.module';
 
 @Module({
   imports: [
@@ -21,10 +20,7 @@ import { UserAvatarModule } from './user-avatar/user-avatar.module';
       }),
       inject: [ConfigService],
     }),
-    MailerModule.forRootAsync({
-      inject: [ConfigService],
-      useFactory: mailerConfig,
-    }),
+    SubscribersModule,
     UserModule,
     UserAvatarModule,
   ],
