@@ -6,7 +6,7 @@ import { User, UserDocument } from './schemas/user.schema';
 import { ClientProxy } from '@nestjs/microservices';
 import { NotFoundException } from '@nestjs/common/exceptions';
 import axios from 'axios';
-import { SendgridService } from 'src/sendgrid.service';
+import { SendgridService } from '../sendgrid.service';
 
 @Injectable()
 export class UserService {
