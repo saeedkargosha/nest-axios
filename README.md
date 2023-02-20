@@ -18,7 +18,6 @@ To install dependencies, run the following command:
 
 ```
 yarn install
-
 ```
 
 ## Docker Compose
@@ -28,7 +27,6 @@ To run the project with MongoDB and RabbitMQ, run the following commands:
 ```
 docker-compose -f ./docker-compose.db.yml up
 docker-compose -f ./docker-compose.rabbitMQ.yml up
-
 ```
 
 ## Running the Application
@@ -37,7 +35,6 @@ To run the application in development mode, use the following command:
 
 ```
 yarn start:dev
-
 ```
 
 ## RabbitMQ
